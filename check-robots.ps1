@@ -7,6 +7,10 @@
 
 #>
 $domainsFile = $args[0]
+If (-not $args[0]) {
+  "Filepath argument not supplied"
+  Return
+}
 
 ForEach($domain in (Get-Content -Path $domainsFile) ) {
     try
