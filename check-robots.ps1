@@ -15,7 +15,7 @@ If (-not $args[0]) {
 ForEach ($domain in (Get-Content -Path $domainsFile) ) {
     Try {
         $Request = "https://${domain}/robots.txt"
-        $Response = Invoke-WebRequest -URI $Request
+        $Response = Invoke-WebRequest -URI $Request -UseBasicParsing
         # This will only execute if the Invoke-WebRequest is successful.
         $StatusCode = $Response.StatusCode
     }
